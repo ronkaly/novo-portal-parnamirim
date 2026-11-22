@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portal do Contribuinte — Prefeitura de Parnamirim (SEMUT)</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'civic-teal': '#0E7490',
+            'civic-teal-container': '#CFFAFE',
+            'on-civic-teal-container': '#083344',
+            'civic-gold': '#B45309',
+            'civic-gold-container': '#FEF3C7',
+            'on-civic-gold-container': '#451A03',
+            'success': '#157347',
+            'on-success': '#FFFFFF',
+            'success-container': '#D1F2E1',
+            'on-success-container': '#0B462B',
+            'warning': '#9A5B00',
+            'on-warning': '#FFFFFF',
+            'warning-container': '#FFE8C2',
+            'on-warning-container': '#4D2C00',
+            'light-primary': '#003867',
+            'light-on-primary': '#FFFFFF',
+            'light-primary-container': '#0D4F8B',
+            'light-on-primary-container': '#EBF1FF',
+            'light-secondary': '#4E5F79',
+            'light-on-secondary': '#FFFFFF',
+            'light-secondary-container': '#CFE1FF',
+            'light-on-secondary-container': '#1F3148',
+            'light-error': '#BA1A1A',
+            'light-on-error': '#FFFFFF',
+            'light-error-container': '#FFDAD6',
+            'light-on-error-container': '#93000A',
+            'light-surface': '#F9F9FF',
+            'light-surface-container-lowest': '#FFFFFF',
+            'light-surface-container-low': '#F3F3F9',
+            'light-surface-container': '#EDEDF3',
+            'light-surface-container-high': '#E7E8ED',
+            'light-on-surface': '#191C20',
+            'light-on-surface-variant': '#424750',
+            'light-outline': '#727781',
+            'light-outline-variant': '#C2C6D1',
+          },
+          borderRadius: {
+            'sm': '6px',
+            'DEFAULT': '8px',
+            'md': '12px',
+            'lg': '16px',
+            'xl': '24px',
+            'full': '9999px',
+          },
+          fontFamily: {
+            'headline': ['"Red Hat Text"', 'sans-serif'],
+            'body': ['"Radio Canada Big"', 'sans-serif'],
+            'label': ['"Radio Canada Big"', 'sans-serif'],
+            'mono': ['"Fira Code"', 'monospace'],
+          },
+        },
+      },
+    };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@500&family=Radio+Canada+Big:wght@400;600&family=Red+Hat+Text:wght@600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=block" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body class="bg-light-surface text-light-on-surface font-body antialiased min-h-screen flex flex-col">
+  <!-- Top Institutional Bar -->
+  <header class="sticky top-0 z-30 bg-light-surface-container-lowest/95 backdrop-blur border-b border-light-outline-variant shadow-sm">
+    <div class="max-w-[1200px] mx-auto px-6 h-[72px] flex items-center justify-between gap-6">
+      <a href="#/" class="min-w-0 flex items-center gap-2.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-light-primary rounded">
+        <img src="/images/logo-parnamirim-3d.jpg" alt="Brasão 3D de Parnamirim" class="w-12 h-12 rounded-md object-contain shrink-0" />
+        <div class="flex flex-col min-w-0">
+          <span class="font-headline font-bold text-[16px] text-light-on-surface leading-tight truncate">Prefeitura de Parnamirim</span>
+          <span class="font-body text-[12px] text-light-on-surface-variant leading-tight truncate">Secretaria Municipal de Tributação · SEMUT</span>
+        </div>
+      </a>
+
+      <nav id="mainNav" aria-label="Navegação principal" class="hidden md:flex items-center gap-6">
+        <a href="#/" data-route="home" class="nav-link font-label text-[14px] font-semibold py-1 transition-colors">Início</a>
+        <a href="#/calendario" data-route="calendario" class="nav-link font-label text-[14px] font-semibold py-1 transition-colors">Calendário IPTU</a>
+        <a href="#/legislacao" data-route="legislacao" class="nav-link font-label text-[14px] font-semibold py-1 transition-colors">Legislação</a>
+        <a href="#/formularios" data-route="formularios" class="nav-link font-label text-[14px] font-semibold py-1 transition-colors">Formulários</a>
+        <a href="#/nfse-docs" data-route="nfse-docs" class="nav-link font-label text-[14px] font-semibold py-1 transition-colors">NFS-e Docs</a>
+      </nav>
+
+      <div class="flex items-center gap-2 shrink-0">
+        <button id="btnAreaRestrita" type="button" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-md bg-light-primary text-light-on-primary hover:bg-light-primary-container shadow-sm transition-colors shrink-0 font-label text-[14px] font-semibold">
+          <span class="material-symbols-outlined text-[18px]" aria-hidden="true">lock</span>
+          <span class="hidden sm:inline">Área Restrita</span>
+        </button>
+        <button id="mobileMenuBtn" type="button" aria-label="Menu" class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-md border border-light-outline-variant text-light-on-surface">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Nav Drawer -->
+    <div id="mobileNav" class="hidden md:hidden border-t border-light-outline-variant bg-light-surface-container-lowest px-6 py-3 flex-col gap-2">
+      <a href="#/" data-route="home" class="nav-link block py-2 font-label text-[14px] font-semibold">Início</a>
+      <a href="#/calendario" data-route="calendario" class="nav-link block py-2 font-label text-[14px] font-semibold">Calendário IPTU 2026</a>
+      <a href="#/legislacao" data-route="legislacao" class="nav-link block py-2 font-label text-[14px] font-semibold">Legislação Tributária</a>
+      <a href="#/formularios" data-route="formularios" class="nav-link block py-2 font-label text-[14px] font-semibold">Documentos e Formulários</a>
+      <a href="#/nfse-docs" data-route="nfse-docs" class="nav-link block py-2 font-label text-[14px] font-semibold">Manuais NFS-e</a>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="app" class="flex-1"></main>
+
+  <!-- Civic Footer -->
+  <footer class="bg-light-surface-container-lowest border-t border-light-outline-variant py-8 mt-auto">
+    <div class="max-w-[1200px] mx-auto px-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      <div class="flex flex-col gap-1">
+        <span class="font-headline font-semibold text-[16px] text-light-on-surface">Prefeitura Municipal de Parnamirim · Secretaria Municipal de Tributação (SEMUT)</span>
+        <span class="font-body text-[12px] text-light-on-surface-variant">Atendimento presencial de segunda a sexta, das 8h às 14h · Integrado ao sistema Tinus Informática</span>
+      </div>
+      <div class="flex flex-wrap items-center gap-4">
+        <a href="#/direto/fale-conosco" class="inline-flex items-center gap-1.5 font-label text-[14px] font-semibold text-light-primary hover:underline">
+          <span class="material-symbols-outlined text-[18px]" aria-hidden="true">support_agent</span>
+          <span>Contatos (Tributos e Taxas)</span>
+        </a>
+        <a href="#/legislacao" class="font-label text-[14px] font-semibold text-light-on-surface-variant hover:text-light-primary">Código Tributário</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Container -->
+  <div id="toastContainer" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2"></div>
+
+  <script src="/services.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>
