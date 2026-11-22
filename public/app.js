@@ -877,11 +877,21 @@ async function renderNativeService(endpoint) {
     const body = document.getElementById('nativeServiceBody');
     const methodNames = Object.keys(meta.methods || {});
 
-    const uniqueFields = [];
+  const uniqueFields = [];
     const seenNames = new Set();
+    const radioGroups = new Map();
     for (const f of meta.fields) {
       if (f.type === 'hidden') continue;
-      if (seenNames.has(f.name) && f.type !== 'radio') continue;
+      if (f.type === 'radio') {
+        if (!radioGroups.has(f.name)) {
+          const group = { name: f.name, tag: 'radio-group', type: 'radio-group', options: [] };
+          radioGroups.set(f.name, group);
+          uniqueFields.push(group);
+        }
+        radioGroups.get(f.name).options.push(f.value);
+        continue;
+      }
+      if (seenNames.has(f.name)) continue;
       seenNames.add(f.name);
       uniqueFields.push(f);
     }
@@ -892,6 +902,25 @@ async function renderNativeService(endpoint) {
           ${uniqueFields
             .map((f) => {
               const label = labelForField(f.name);
+              if (f.tag === 'radio-group') {
+                return `
+                  <div class="flex flex-col gap-1.5">
+                    <span class="font-label text-[13px] font-semibold text-light-on-surface">${escapeHtml(label)}</span>
+                    <div class="flex flex-wrap gap-3 pt-1.5">
+                      ${f.options
+                        .map(
+                          (val, idx) => `
+                        <label class="inline-flex items-center gap-1.5 text-[14px] cursor-pointer">
+                          <input type="radio" name="${escapeHtml(f.name)}" value="${escapeHtml(val)}" ${idx === 0 ? 'checked' : ''} class="text-light-primary focus:ring-light-primary" />
+                          <span>${escapeHtml(val)}</span>
+                        </label>
+                      `
+                        )
+                        .join('')}
+                    </div>
+                  </div>
+                `;
+              }
               if (f.tag === 'select') {
                 return `
                   <div class="flex flex-col gap-1.5">
