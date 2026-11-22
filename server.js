@@ -257,30 +257,23 @@ app.get('/api/formularios', async (req, res) => {
     const categorias = [];
     let currentCat = { categoria: 'Documentos Gerais', itens: [] };
 
-    $('table tr').each((_, tr) => {
-      const text = $(tr).text().replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim();
-      if (!text) return;
+    $('a').each((_, el) => {
+      const cls = ($(el).attr('class') || '').toLowerCase();
+      const text = $(el).text().replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim();
+      const href = $(el).attr('href') || '';
 
-      if (text.includes('***')) {
+      if (cls.includes('labelpag') || text.includes('***')) {
         if (currentCat.itens.length > 0) categorias.push(currentCat);
         currentCat = {
           categoria: text.replace(/\*+/g, '').trim(),
           itens: [],
         };
-        return;
-      }
-
-      const link = $(tr).find('a').first();
-      if (link.length) {
-        const href = link.attr('href') || '';
-        const titulo = link.text().replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim();
-        if (href && titulo) {
-          currentCat.itens.push({
-            titulo,
-            url: href,
-            proxyUrl: `/api/doc?url=${encodeURIComponent(href)}`,
-          });
-        }
+      } else if (href && text && !href.startsWith('javascript')) {
+        currentCat.itens.push({
+          titulo: text,
+          url: href,
+          proxyUrl: `/api/doc?url=${encodeURIComponent(href)}`,
+        });
       }
     });
 
