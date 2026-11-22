@@ -129,8 +129,8 @@ function renderHome() {
 
   appEl.innerHTML = `
     <!-- Visual Hero Banner -->
-    <section class="bg-light-primary text-light-on-primary py-8 lg:py-12">
-      <div class="max-w-[1200px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+    <section class="bg-light-primary text-light-on-primary py-6 sm:py-8 lg:py-12">
+      <div class="max-w-[1200px] mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
         <div class="lg:col-span-7 flex flex-col gap-4">
           <div class="flex flex-wrap items-center gap-2.5">
             <span role="status" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-civic-gold-container text-on-civic-gold-container">
@@ -179,15 +179,15 @@ function renderHome() {
         <!-- Hero Illustration -->
         <div class="lg:col-span-5">
           <div class="rounded-xl overflow-hidden shadow-xl border border-light-primary-container bg-light-primary-container">
-            <img src="${HERO_IMG}" alt="Ilustração 3D da cidade de Parnamirim" class="w-full h-64 lg:h-80 object-cover" />
+            <img src="${HERO_IMG}" alt="Ilustração 3D da cidade de Parnamirim" class="w-full h-52 sm:h-64 lg:h-80 object-cover" />
           </div>
         </div>
       </div>
     </section>
 
     <!-- Visual Bento Highlights -->
-    <section id="destaques" class="py-12 bg-light-surface-container-low border-b border-light-outline-variant">
-      <div class="max-w-[1200px] mx-auto px-6 flex flex-col gap-6">
+    <section id="destaques" class="py-8 sm:py-12 bg-light-surface-container-low border-b border-light-outline-variant">
+      <div class="max-w-[1200px] mx-auto px-4 sm:px-6 flex flex-col gap-6">
         <div class="flex flex-col md:flex-row md:items-end justify-between gap-2">
           <div>
             <h2 class="font-headline font-bold text-[28px] lg:text-[32px] text-light-on-surface">Principais jornadas do portal</h2>
@@ -264,8 +264,8 @@ function renderHome() {
     </section>
 
     <!-- Catálogo Completo com Abas -->
-    <section id="servicos" class="py-12">
-      <div class="max-w-[1200px] mx-auto px-6 flex flex-col gap-6">
+    <section id="servicos" class="py-8 sm:py-12">
+      <div class="max-w-[1200px] mx-auto px-4 sm:px-6 flex flex-col gap-6">
         <div class="flex flex-col md:flex-row md:items-end justify-between gap-2">
           <div>
             <h2 class="font-headline font-bold text-[24px] lg:text-[28px] text-light-on-surface">Todos os serviços do portal</h2>
@@ -302,8 +302,8 @@ function renderHome() {
     </section>
 
     <!-- Rich Navy Placar da Transparência -->
-    <section id="placar" class="bg-light-primary text-light-on-primary py-12">
-      <div class="max-w-[1200px] mx-auto px-6 flex flex-col gap-6">
+    <section id="placar" class="bg-light-primary text-light-on-primary py-8 sm:py-12">
+      <div class="max-w-[1200px] mx-auto px-4 sm:px-6 flex flex-col gap-6">
         <div class="flex flex-col md:flex-row md:items-end justify-between gap-2">
           <div>
             <h2 class="font-headline font-bold text-[28px] lg:text-[32px] text-light-on-primary">Placar da Tributação Digital</h2>
@@ -407,16 +407,16 @@ function bindServiceCards() {
 async function renderCalendario() {
   setActiveNav('calendario');
   appEl.innerHTML = `
-    <div class="max-w-[1200px] mx-auto px-6 py-8">
+    <div class="max-w-[1200px] mx-auto px-4 sm:px-6 py-5 sm:py-8">
       <div class="flex items-center gap-2 text-[13px] text-light-on-surface-variant mb-4">
         <a href="#/" class="text-light-primary font-semibold hover:underline">Início</a>
         <span class="material-symbols-outlined text-[16px]">chevron_right</span>
         <span>Calendário IPTU 2026</span>
       </div>
-      <div class="bg-light-surface-container-lowest border border-light-outline-variant rounded-xl p-6 lg:p-8 shadow-sm">
+      <div class="bg-light-surface-container-lowest border border-light-outline-variant rounded-xl p-4 sm:p-6 lg:p-8 shadow-sm">
         <div class="flex flex-wrap items-start justify-between gap-4 pb-5 mb-6 border-b border-light-outline-variant">
           <div>
-            <h2 class="font-headline font-bold text-[24px] text-light-primary">Calendário de Vencimentos do IPTU 2026</h2>
+            <h2 class="font-headline font-bold text-[20px] sm:text-[24px] text-light-primary">Calendário de Vencimentos do IPTU 2026</h2>
             <p class="text-[14px] text-light-on-surface-variant mt-1">Dados obtidos em tempo real do servidor oficial da Tinus (sem necessidade de captcha).</p>
           </div>
           <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-success-container text-on-success-container font-label text-[12px] font-semibold">
@@ -489,16 +489,16 @@ const LEGIS_TIPOS = [
 async function renderLegislacao(selectedTipo = '1') {
   setActiveNav('legislacao');
   appEl.innerHTML = `
-    <div class="max-w-[1200px] mx-auto px-6 py-8">
+    <div class="max-w-[1200px] mx-auto px-4 sm:px-6 py-5 sm:py-8">
       <div class="flex items-center gap-2 text-[13px] text-light-on-surface-variant mb-4">
         <a href="#/" class="text-light-primary font-semibold hover:underline">Início</a>
         <span class="material-symbols-outlined text-[16px]">chevron_right</span>
         <span>Legislação Tributária</span>
       </div>
-      <div class="bg-light-surface-container-lowest border border-light-outline-variant rounded-xl p-6 lg:p-8 shadow-sm">
+      <div class="bg-light-surface-container-lowest border border-light-outline-variant rounded-xl p-4 sm:p-6 lg:p-8 shadow-sm">
         <div class="flex flex-wrap items-start justify-between gap-4 pb-5 mb-6 border-b border-light-outline-variant">
           <div>
-            <h2 class="font-headline font-bold text-[24px] text-light-primary">Legislação Tributária Municipal</h2>
+            <h2 class="font-headline font-bold text-[20px] sm:text-[24px] text-light-primary">Legislação Tributária Municipal</h2>
             <p class="text-[14px] text-light-on-surface-variant mt-1">Consulte e baixe leis, decretos e portarias diretamente pelo novo portal.</p>
           </div>
           <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-success-container text-on-success-container font-label text-[12px] font-semibold">
@@ -556,7 +556,25 @@ async function renderLegislacao(selectedTipo = '1') {
         return;
       }
       legisBody.innerHTML = `
-        <div class="overflow-x-auto">
+        <!-- Mobile Cards (sem scroll horizontal) -->
+        <div class="flex flex-col gap-3 md:hidden">
+          ${rows
+            .map(
+              (r) => `
+            <div class="border border-light-outline-variant rounded-lg p-4 bg-light-surface-container-low/40 flex flex-col gap-2.5">
+              <strong class="font-headline text-[15px] text-light-primary leading-snug">${escapeHtml(r.titulo)}</strong>
+              ${r.descricao ? `<p class="text-[13px] text-light-on-surface-variant leading-relaxed">${escapeHtml(r.descricao)}</p>` : ''}
+              <a href="${r.proxyUrl}" target="_blank" class="w-full inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-md bg-light-secondary-container text-light-on-secondary-container hover:bg-light-primary hover:text-light-on-primary font-label text-[13px] font-semibold transition-colors mt-1">
+                <span class="material-symbols-outlined text-[18px]">picture_as_pdf</span> Abrir PDF
+              </a>
+            </div>
+          `
+            )
+            .join('')}
+        </div>
+
+        <!-- Desktop Table -->
+        <div class="hidden md:block overflow-x-auto">
           <table class="w-full text-left border-collapse text-[14px]">
             <thead>
               <tr class="bg-light-surface-container-low border-b border-light-outline-variant">
@@ -602,16 +620,16 @@ async function renderLegislacao(selectedTipo = '1') {
 async function renderFormularios() {
   setActiveNav('formularios');
   appEl.innerHTML = `
-    <div class="max-w-[1200px] mx-auto px-6 py-8">
+    <div class="max-w-[1200px] mx-auto px-4 sm:px-6 py-5 sm:py-8">
       <div class="flex items-center gap-2 text-[13px] text-light-on-surface-variant mb-4">
         <a href="#/" class="text-light-primary font-semibold hover:underline">Início</a>
         <span class="material-symbols-outlined text-[16px]">chevron_right</span>
         <span>Documentos e Formulários</span>
       </div>
-      <div class="bg-light-surface-container-lowest border border-light-outline-variant rounded-xl p-6 lg:p-8 shadow-sm">
+      <div class="bg-light-surface-container-lowest border border-light-outline-variant rounded-xl p-4 sm:p-6 lg:p-8 shadow-sm">
         <div class="flex flex-wrap items-start justify-between gap-4 pb-5 mb-6 border-b border-light-outline-variant">
           <div>
-            <h2 class="font-headline font-bold text-[24px] text-light-primary">Documentos, Requerimentos e Formulários</h2>
+            <h2 class="font-headline font-bold text-[20px] sm:text-[24px] text-light-primary">Documentos, Requerimentos e Formulários</h2>
             <p class="text-[14px] text-light-on-surface-variant mt-1">Baixe modelos oficiais para abertura de processos, isenções e declarações.</p>
           </div>
           <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-success-container text-on-success-container font-label text-[12px] font-semibold">
@@ -636,7 +654,21 @@ async function renderFormularios() {
           <span class="material-symbols-outlined text-[20px]">folder_open</span>
           ${escapeHtml(cat.categoria)}
         </h3>
-        <div class="border border-light-outline-variant rounded-lg overflow-hidden">
+        <div class="flex flex-col gap-2.5 md:hidden">
+          ${cat.itens
+            .map(
+              (item) => `
+            <div class="border border-light-outline-variant rounded-lg p-3.5 bg-light-surface-container-low/40 flex flex-col gap-2.5">
+              <span class="text-[14px] font-medium text-light-on-surface">${escapeHtml(item.titulo)}</span>
+              <a href="${item.proxyUrl}" target="_blank" class="w-full inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-md bg-light-secondary-container text-light-on-secondary-container hover:bg-light-primary hover:text-light-on-primary font-label text-[13px] font-semibold transition-colors">
+                <span class="material-symbols-outlined text-[17px]">download</span> Baixar
+              </a>
+            </div>
+          `
+            )
+            .join('')}
+        </div>
+        <div class="hidden md:block border border-light-outline-variant rounded-lg overflow-hidden">
           <table class="w-full text-left border-collapse text-[14px]">
             <tbody>
               ${cat.itens
@@ -673,16 +705,16 @@ async function renderFormularios() {
 async function renderNfseDocs() {
   setActiveNav('nfse-docs');
   appEl.innerHTML = `
-    <div class="max-w-[1200px] mx-auto px-6 py-8">
+    <div class="max-w-[1200px] mx-auto px-4 sm:px-6 py-5 sm:py-8">
       <div class="flex items-center gap-2 text-[13px] text-light-on-surface-variant mb-4">
         <a href="#/" class="text-light-primary font-semibold hover:underline">Início</a>
         <span class="material-symbols-outlined text-[16px]">chevron_right</span>
         <span>Manuais e Integração NFS-e</span>
       </div>
-      <div class="bg-light-surface-container-lowest border border-light-outline-variant rounded-xl p-6 lg:p-8 shadow-sm">
+      <div class="bg-light-surface-container-lowest border border-light-outline-variant rounded-xl p-4 sm:p-6 lg:p-8 shadow-sm">
         <div class="flex flex-wrap items-start justify-between gap-4 pb-5 mb-6 border-b border-light-outline-variant">
           <div>
-            <h2 class="font-headline font-bold text-[24px] text-light-primary">Manuais e Integração NFS-e (Padrão Nacional & ABRASF)</h2>
+            <h2 class="font-headline font-bold text-[20px] sm:text-[24px] text-light-primary">Manuais e Integração NFS-e (Padrão Nacional & ABRASF)</h2>
             <p class="text-[14px] text-light-on-surface-variant mt-1">Instruções de integração via Webservice e arquivos técnicos atualizados.</p>
           </div>
           <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-success-container text-on-success-container font-label text-[12px] font-semibold">
@@ -700,7 +732,7 @@ async function renderNfseDocs() {
     if (!res.ok) throw new Error(data.error || 'Erro ao carregar');
 
     document.getElementById('nfseBody').innerHTML = `
-      <div class="p-5 rounded-lg bg-civic-teal-container/40 border border-civic-teal/30 mb-6">
+      <div class="p-4 sm:p-5 rounded-lg bg-civic-teal-container/40 border border-civic-teal/30 mb-6">
         <h3 class="font-headline font-semibold text-[16px] text-on-civic-teal-container flex items-center gap-2 mb-2">
           <span class="material-symbols-outlined text-[20px]">info</span> Comunicado Oficial — Integração NFS-e
         </h3>
@@ -710,7 +742,22 @@ async function renderNfseDocs() {
       </div>
 
       <h3 class="font-headline font-semibold text-[16px] text-light-on-surface mb-3">Manuais, XSDs e Tabelas Disponíveis</h3>
-      <div class="overflow-x-auto border border-light-outline-variant rounded-lg">
+      <div class="flex flex-col gap-2.5 md:hidden">
+        ${data.manuais
+          .map(
+            (m) => `
+          <div class="border border-light-outline-variant rounded-lg p-3.5 bg-light-surface-container-low/40 flex flex-col gap-2.5">
+            <strong class="text-[14px] text-light-on-surface">${escapeHtml(m.titulo)}</strong>
+            <a href="${m.proxyUrl}" target="_blank" class="w-full inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-md bg-light-secondary-container text-light-on-secondary-container hover:bg-light-primary hover:text-light-on-primary font-label text-[13px] font-semibold transition-colors">
+              <span class="material-symbols-outlined text-[17px]">${m.isExternal ? 'open_in_new' : 'download'}</span>
+              ${m.isExternal ? 'Abrir Link' : 'Baixar'}
+            </a>
+          </div>
+        `
+          )
+          .join('')}
+      </div>
+      <div class="hidden md:block overflow-x-auto border border-light-outline-variant rounded-lg">
         <table class="w-full text-left border-collapse text-[14px]">
           <thead>
             <tr class="bg-light-surface-container-low border-b border-light-outline-variant">
@@ -792,16 +839,16 @@ async function renderNativeService(endpoint) {
   };
 
   appEl.innerHTML = `
-    <div class="max-w-[1200px] mx-auto px-6 py-8">
+    <div class="max-w-[1200px] mx-auto px-4 sm:px-6 py-5 sm:py-8">
       <div class="flex items-center gap-2 text-[13px] text-light-on-surface-variant mb-4">
         <a href="#/" class="text-light-primary font-semibold hover:underline">Início</a>
         <span class="material-symbols-outlined text-[16px]">chevron_right</span>
-        <span>${escapeHtml(serviceInfo.title)}</span>
+        <span class="truncate">${escapeHtml(serviceInfo.title)}</span>
       </div>
-      <div class="bg-light-surface-container-lowest border border-light-outline-variant rounded-xl p-6 lg:p-8 shadow-sm">
+      <div class="bg-light-surface-container-lowest border border-light-outline-variant rounded-xl p-4 sm:p-6 lg:p-8 shadow-sm">
         <div class="flex flex-wrap items-start justify-between gap-4 pb-5 mb-6 border-b border-light-outline-variant">
           <div>
-            <h2 class="font-headline font-bold text-[24px] text-light-primary">${escapeHtml(serviceInfo.title)}</h2>
+            <h2 class="font-headline font-bold text-[20px] sm:text-[24px] text-light-primary">${escapeHtml(serviceInfo.title)}</h2>
             <p class="text-[14px] text-light-on-surface-variant mt-1">${escapeHtml(serviceInfo.desc)}</p>
           </div>
           <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-success-container text-on-success-container font-label text-[12px] font-semibold">
@@ -1043,11 +1090,11 @@ function renderIframeService(serviceId) {
   const directUrl = TINUS_BASE + service.endpoint;
 
   appEl.innerHTML = `
-    <div class="max-w-[1200px] mx-auto px-6 py-8">
+    <div class="max-w-[1200px] mx-auto px-4 sm:px-6 py-5 sm:py-8">
       <div class="flex items-center gap-2 text-[13px] text-light-on-surface-variant mb-4">
         <a href="#/" class="text-light-primary font-semibold hover:underline">Início</a>
         <span class="material-symbols-outlined text-[16px]">chevron_right</span>
-        <span>${escapeHtml(service.title)}</span>
+        <span class="truncate">${escapeHtml(service.title)}</span>
       </div>
 
       <div class="bg-light-surface-container-lowest border border-light-outline-variant rounded-xl overflow-hidden shadow-md">
