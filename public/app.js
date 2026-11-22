@@ -93,6 +93,10 @@ function renderServiceCardsHtml(list) {
               ? `<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-success-container text-on-success-container font-label text-[11px] font-semibold whitespace-nowrap">
                    <span class="material-symbols-outlined text-[13px]">bolt</span> Portal Novo
                  </span>`
+              : s.mode === 'external'
+              ? `<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-civic-teal-container text-on-civic-teal-container font-label text-[11px] font-semibold whitespace-nowrap">
+                   <span class="material-symbols-outlined text-[13px]">open_in_new</span> Site Externo
+                 </span>`
               : `<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-civic-gold-container text-on-civic-gold-container font-label text-[11px] font-semibold whitespace-nowrap">
                    <span class="material-symbols-outlined text-[13px]">lock</span> Portal Antigo
                  </span>`
@@ -102,7 +106,7 @@ function renderServiceCardsHtml(list) {
         <p class="font-body text-[14px] text-light-on-surface-variant mt-1.5">${escapeHtml(s.desc)}</p>
       </div>
       <div class="flex items-center justify-between pt-3 border-t border-light-surface-container text-[12px] text-light-on-surface-variant">
-        <span>${s.mode === 'native' ? 'Sem login/captcha' : 'Exige login ou captcha'}</span>
+        <span>${s.mode === 'native' ? 'Sem login/captcha' : s.mode === 'external' ? 'Abre em nova aba' : 'Exige login ou captcha'}</span>
         <span class="inline-flex items-center gap-1 font-label font-semibold text-light-primary">
           Acessar <span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_forward</span>
         </span>
@@ -396,7 +400,11 @@ function bindServiceCards() {
     card.addEventListener('click', () => {
       const s = SERVICES.find((x) => x.id === card.dataset.serviceId);
       if (!s) return;
-      location.hash = s.mode === 'native' ? s.route : `#/direto/${s.id}`;
+      if (s.mode === 'external') {
+        window.open(s.externalUrl, '_blank', 'noopener,noreferrer');
+      } else {
+        location.hash = s.mode === 'native' ? s.route : `#/direto/${s.id}`;
+      }
     });
   });
 }
@@ -476,6 +484,7 @@ async function renderCalendario() {
 const LEGIS_TIPOS = [
   { id: '1', label: 'IPTU' },
   { id: '3', label: 'ISS' },
+  { id: '4', label: 'DMS' },
   { id: '5', label: 'NFS-e' },
   { id: '10', label: 'Simples Nacional' },
   { id: '11', label: 'CTM' },
